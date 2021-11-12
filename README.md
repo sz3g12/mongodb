@@ -14,3 +14,5 @@ Youtube
 Query basics
 https://www.youtube.com/watch?v=n7l8OpLA_yA&list=PLs3IFJPw3G9KSf2sa1V5DLT0RUmpVm-IZ&index=6
 
+Join with lookup
+https://stackoverflow.com/questions/5681851/mongodb-combine-data-from-multiple-collections-into-one-how
