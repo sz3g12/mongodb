@@ -1,0 +1,34 @@
+# install pymongo
+# !pip3 install pymongo
+
+
+# import PyMongo package.
+from pymongo import MongoClient
+client = MongoClient('mongodb://localhost:27017/?readPreference=primary&appname=MongoDB%20Compass&ssl=false')
+
+# set db
+db = client["trade_us"]
+
+# check collections
+collection = db.list_collection_names()
+for collect in collection:
+    print(collect)
+
+# connect to the collections
+exp = db["export2020"]
+country = db["country"]
+exphs = db["exphscode2020"]
+clas = db["classification"]
+
+# check the first ob of the collections
+exp.find_one()
+country.find_one()
+exphs.find_one()
+clas.find_one()
+
+# try out basic find queries
+# note that "" is needed in pymongo (as oppsed to mongo shell)
+query = { "weightkg":{"$lte":1} }
+doc = exp.find(query)
+for x in doc:
+  print(x)
