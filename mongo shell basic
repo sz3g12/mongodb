@@ -1,0 +1,34 @@
+# check version
+db.version()
+# 5.0.3
+
+# access in terminal
+mongo
+show dbs
+use trade_us
+
+# query data in dataset
+Db.country.find()
+
+# query only the first record
+Db.country.findOne()
+
+# to make it in nice json format 
+Db.country.find().pretty()
+
+# find filter condition - Just give the matching pattern
+db.country.find({"country":"Chile"}).pretty()
+
+# less than greater than, lte, gte
+db.export2020.find({"weight":{$lte:1}}).pretty()
+
+# in & not in
+db.export2020.find({"City":{$in:["Elizabeth", "Singapore", "Southampton"]}}).pretty()
+
+# or & and
+db.export2020.find({$or:[{"City":{$in:["Elizabeth", 'New York']}},{"vessel":"King Albert"}]}).pretty()
+db.export2020.find({$and:[{"City":{$in:["Elizabeth", 'New York']}},{"vessel":"King Albert"}]}).pretty()
+The and condition can be simplified as:
+db.export2020.find({"City":{$in:["Elizabeth", 'New York']},"vessel":"King Albert"}).pretty()
+ 
+(Note: it’s not db.export2020.find({"City":{$in:["Elizabeth", 'New York']}},{"vessel":"King Albert"}).pretty()
